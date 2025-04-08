@@ -6,12 +6,12 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: [true, 'Password is required'] },
   isVerified: { type: Boolean, default: false },
   isAdmin: { type: Boolean, default: false },
-  forgotPasswordToken: { type: String, default: null },
-  forgotPasswordExpiry: { type: Date, default: null },
-  verifyToken: { type: String, default: null },
-  verifyTokenExpiry: { type: Date, default: null },
+  forgotPasswordToken: { type: String },
+  forgotPasswordExpiry: { type: Date },
+  verifyToken: { type: String },
+  verifyTokenExpiry: { type: Date },
 });
 
-const User = mongoose.model.users || mongoose.model('users', userSchema);
+const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 export default User;
